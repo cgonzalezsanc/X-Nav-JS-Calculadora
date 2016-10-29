@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+     <style type="text/css" media="screen">
+       body{
+         padding:0;
+         margin:50px auto;
+         text-align:center;
+         font:100% Verdana;
+       }
+       a {
+         font-size: 2em;
+       }
+       #display {
+         font-size: 2em;
+       }
+	   #reload {
+		 font-size: 1em;
+	   }
+	   #ejecucion {
+		 color: red;
+	   }
+     </style>
+     <title>Calculadora binaria</title>
+   </head>
+   <body>
+     <p>
+	 <a href="javascript:mostrar(1)">1</a>  
+	 <a href="javascript:mostrar(0)">0</a>  
+	 <a href="javascript:almacenar()">+</a>  
+     <a href="javascript:sumar()">=</a>  
+	 </p>
+	 <p> Display: <span id='display'></span></p>
+	 <p id="ejecucion"></p>
+     <p id="reload"><a href="javascript:document.location.reload()">Recargar pagina</a></p>
+     <script type="text/javascript" charset="utf-8">
+		function mostrar(txt) {
+			var element = document.getElementById('display');
+			element.innerHTML = txt;
+			var ejec = document.getElementById('ejecucion');
+			ejec.innerHTML = '';
+		}
+		function almacenar() {
+			var str = document.getElementById('display');
+			sumando1 = parseInt(str.innerHTML);
+			str.innerHTML = '';
+			if (sumando1>1 || sumando1<0)
+				var ejec = document.getElementById('ejecucion');
+				ejec.innerHTML = 'ERROR: El primer sumando no es 0 ni 1';
+		}
+		function sumar() {
+			var sumando2 = document.getElementById('display');
+			sumando2 = parseInt(sumando2.innerHTML);
+			mostrar(sumando1+sumando2);
+			sumando1 = 0;
+		}
+     </script>
+   </body>
+</html>
